@@ -5,7 +5,7 @@ const port = 3000
 app.use(cors())
 
 app.get('/', (req, res) => {
-  res.json(1000)
+  res.json({"temp1": 10, "temp2": 20})
 })
 
 app.listen(port, () => {
