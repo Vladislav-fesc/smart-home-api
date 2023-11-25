@@ -1,4 +1,5 @@
 const Sensor = require('./Sensor.js');
+const GTemp = {};
 
 class TemperatureSensor extends Sensor {
   constructor(sensor_id, name, floor_number) {
@@ -11,8 +12,15 @@ class TemperatureSensor extends Sensor {
     const value = Math.floor(Math.random() * 1025); // Adjusted to match the Python randint behavior
     const celsius =
       1 / (Math.log(1 / (1023 / value - 1)) / beta + 1.0 / 298.15) - 273.15;
-    return celsius;
+    let roundedNumber = Math.round(celsius);
+    return roundedNumber;
   }
+  temp(id) {
+    GTemp[id] = this.measure();
+    return GTemp;
+  }
+
+  
 }
 
-module.exports = { TemperatureSensor };
+module.exports = { TemperatureSensor,GTemp };
