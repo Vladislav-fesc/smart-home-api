@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
   res.json([temp1, temp2, temp3, temp4,temp5])
 })
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0',() => {
   console.log(`Example app listening on port ${port}`)
 })
 
